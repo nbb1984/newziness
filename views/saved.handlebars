@@ -1,0 +1,17 @@
+			<h1 style= "font-size: 50px">Newziness</h1>
+			<h3><i>ScienceNews</i></h3>
+			<a href='/articles' style= "color:orange"><b>back to main</b></a>
+
+			{{#each articles}}
+				{{#if saved}}
+				<br>
+				<br>
+				<br>
+				  <h4> {{title}} </h4> 
+				  <a href="{{link}}" target="_blank" style = "color: #4867aa">{{link}}</a>
+				<br>
+				<br>
+				  <button data-id={{_id}} id='deletearticle'><a href = "/article/unsave/{{_id}}">Delete Article</a></button>
+				  <button data-id= {{_id}}><a href = "/article/{{_id}}">Leave Comment</a></button>
+				{{/if}}
+			{{/each}}

@@ -1,0 +1,15 @@
+			<h1 style="font-size: 50px">Welcome to Newziness</h1>
+				<h3><i>ScienceNews</i></h3>
+				<a href = "/clear" style = "color: orange; border: 1px solid orange">Clear Articles</a>
+				<button><a href = "/articles">Get Articles</a></button>
+					{{#each articles}}
+						<br>
+						<br>
+						<br>
+						  <h4> {{title}} </h4> 
+						  <a href = "{{link}}" target="_blank" style = "color: #4867aa">{{link}}</a>
+						  <br>
+						  <br>
+						  <button><a href = "/article/save/{{_id}}">Save Article</a></button>
+						  <button data-id= {{_id}}><a href = "/article/{{_id}}">Comments</a></button>
+					{{/each}}

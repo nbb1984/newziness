@@ -1,0 +1,27 @@
+		<div class = "article">
+			<h1 style="width:85%">{{title}}</h1>
+				<a href='/articles' style= "color:orange"><b>back to main</b></a>
+				<br>
+				<a href = "{{link}}" target="_blank" style="color:#4867aa">{{link}}</a>
+				<br>
+				<br>
+				<button><a href = "/article/save/{{_id}}">Save Article</a></button>
+				<br>
+				<br>
+			<h3>Leave Comment</h3>
+				  <form method="POST" action="/articles/{{_id}}/addcomment" class="button-size">
+					<input id='titleinput' placeholder= 'Title' name='title' style="width: 70%">
+					<br>
+					<br>
+					<textarea id='bodyinput' placeholder = 'Add Comment Here' name='body' style="width: 70%"></textarea>
+					<br>
+					<button data-id={{_id}} id='commentarticle'>Submit</button>
+				  </form>
+				{{#each comments}}
+					<br>
+					<br>
+					<p><b>{{this.title}}</b></p>
+					<p>{{this.body}}</p>
+					<button data-id={{_id}} id='deletecomment'><a href = "/comments/delete/{{_id}}/{{../_id}}">Delete Comment</a></button>
+				{{/each}}
+		</div>
