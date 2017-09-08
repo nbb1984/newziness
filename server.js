@@ -130,7 +130,8 @@ app.get("/articles", function(req, res) {
 // Grab an article by it's ObjectId
 app.get("/article/:id", function(req, res) {
   console.log('ARTICLE LOADED');
-  console.log(req.params.id);
+  console.log(req.params);
+  console.log('^^ that was the params')
   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
   Article.findOne({ "_id": req.params.id })
   // ..and populate all of the Comments associated with it
@@ -138,8 +139,9 @@ app.get("/article/:id", function(req, res) {
   // now, execute our query
   .exec(function(error, doc) {
     // Log any errors
+    console.log(doc);
     if (error) {
-      console.log(error);
+      // console.log(error);
     }
     // Otherwise, send the doc to the browser as a json object
     else {
